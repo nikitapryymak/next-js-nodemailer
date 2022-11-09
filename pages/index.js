@@ -82,9 +82,7 @@ export default function Home() {
           onChange={handleChange}
           onBlur={onBlur}
         />
-        {touched.name && !values.name && (
-          <FormErrorMessage>Required</FormErrorMessage>
-        )}
+        <FormErrorMessage>Required</FormErrorMessage>
       </FormControl>
 
       <FormControl isRequired isInvalid={touched.email && !values.email} mb={5}>
@@ -97,9 +95,7 @@ export default function Home() {
           onChange={handleChange}
           onBlur={onBlur}
         />
-        {touched.email && !values.email && (
-          <FormErrorMessage>Required</FormErrorMessage>
-        )}
+        <FormErrorMessage>Required</FormErrorMessage>
       </FormControl>
 
       <FormControl
@@ -115,9 +111,7 @@ export default function Home() {
           onChange={handleChange}
           onBlur={onBlur}
         />
-        {touched.subject && !values.subject && (
-          <FormErrorMessage>Required</FormErrorMessage>
-        )}
+        <FormErrorMessage>Required</FormErrorMessage>
       </FormControl>
 
       <FormControl
@@ -135,9 +129,7 @@ export default function Home() {
           onChange={handleChange}
           onBlur={onBlur}
         />
-        {touched.message && !values.message && (
-          <FormErrorMessage>Required</FormErrorMessage>
-        )}
+        <FormErrorMessage>Required</FormErrorMessage>
       </FormControl>
 
       <Button

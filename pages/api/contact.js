@@ -26,17 +26,11 @@ const generateEmailContent = (data) => {
 const handler = async (req, res) => {
   if (req.method === "POST") {
     const data = req.body;
-    try {
-      if (
-        !data ||
-        !data.name ||
-        !data.email ||
-        !data.subject ||
-        !data.message
-      ) {
-        return res.status(400).send(data);
-      }
+    if (!data || !data.name || !data.email || !data.subject || !data.message) {
+      return res.status(400).send({ message: "Bad request" });
+    }
 
+    try {
       await transporter.sendMail({
         ...mailOptions,
         ...generateEmailContent(data),
