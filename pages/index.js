@@ -13,12 +13,7 @@ import {
 import { useState } from "react";
 import { sendContactForm } from "../lib/api";
 
-const initValues = {
-  name: "",
-  email: "",
-  subject: "",
-  message: "",
-};
+const initValues = { name: "", email: "", subject: "", message: "" };
 
 const initState = { isLoading: false, error: "", values: initValues };
 
@@ -29,14 +24,16 @@ export default function Home() {
 
   const { values, isLoading, error } = state;
 
-  const onBlur = ({ target }) => {
+  const onBlur = ({ target }) =>
     setTouched((prev) => ({ ...prev, [target.name]: true }));
-  };
 
   const handleChange = ({ target }) =>
     setState((prev) => ({
       ...prev,
-      values: { ...prev.values, [target.name]: target.value },
+      values: {
+        ...prev.values,
+        [target.name]: target.value,
+      },
     }));
 
   const onSubmit = async () => {
@@ -107,6 +104,7 @@ export default function Home() {
         <Input
           type="text"
           name="subject"
+          errorBorderColor="red.300"
           value={values.subject}
           onChange={handleChange}
           onBlur={onBlur}
