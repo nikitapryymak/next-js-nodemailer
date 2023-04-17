@@ -68,9 +68,12 @@ export default function Home() {
    * 
    */
   const onSubmit = async () => {
-    //We pass 'values' - our current state - to sendContactForm (in /lib/api.js)
-    await sendContactForm(values);
-  }
+    try {
+      await sendContactForm(values);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
