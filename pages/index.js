@@ -1,28 +1,16 @@
-import {
-  Button,
-  Container,
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-  Heading,
-  Input,
-  Text,
-  Textarea,
-  useToast,
-} from "@chakra-ui/react";
+
 import { useState } from "react";
 import { sendContactForm } from "../lib/api";
+import Head from 'next/head';
 
 const initValues = { name: "", email: "", subject: "", message: "" };
 
 const initState = { isLoading: false, error: "", values: initValues };
 
 export default function Home() {
-  const toast = useToast();
   const [state, setState] = useState(initState);
-  const [touched, setTouched] = useState({});
-
-  const { values, isLoading, error } = state;
+ 
+  const { values } = state;
 
   const onBlur = ({ target }) =>
     setTouched((prev) => ({ ...prev, [target.name]: true }));
@@ -37,28 +25,8 @@ export default function Home() {
     }));
 
   const onSubmit = async () => {
-    setState((prev) => ({
-      ...prev,
-      isLoading: true,
-    }));
-    try {
       await sendContactForm(values);
-      setTouched({});
-      setState(initState);
-      toast({
-        title: "Message sent.",
-        status: "success",
-        duration: 2000,
-        position: "top",
-      });
-    } catch (error) {
-      setState((prev) => ({
-        ...prev,
-        isLoading: false,
-        error: error.message,
-      }));
-    }
-  };
+  }
 
   return (
     <>
