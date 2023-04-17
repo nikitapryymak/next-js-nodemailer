@@ -53,7 +53,6 @@ export default function Home() {
       <main>
        <h1>Contact:</h1>
        <form>
-        <fieldset>
           <legend>Input fields:</legend>
           <div>
             <label htmlFor="name">Name:</label>
@@ -73,9 +72,8 @@ export default function Home() {
           </div>
           <div>
           <label htmlFor="submit">Submit info:</label>
-            <button onClick={onSubmit} disabled={!values.name || !values.subject || !values.email || !values.message}>Submit</button>
+            <input type="submit" value="submit" onClick={onSubmit} disabled={!values.name || !values.subject || !values.email || !values.message} />
           </div>
-        </fieldset>
       </form>
       </main>
     </>
