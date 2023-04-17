@@ -12,9 +12,6 @@ export default function Home() {
  
   const { values } = state;
 
-  const onBlur = ({ target }) =>
-    setTouched((prev) => ({ ...prev, [target.name]: true }));
-
   const handleChange = ({ target }) =>
     setState((prev) => ({
       ...prev,
