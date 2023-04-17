@@ -22,14 +22,16 @@ import { mailOptions, transporter } from "../../config/nodemailer";
  */
 const generateEmailContent = (data) => {
   /**
-   * 'stringData' is our accumlator variables, we will append text to it recursivley until it is done.
+   * 'stringData' is our accumlator variables, we will append text to it recursivley until it is done
+   * parsing through all the keys of 'data'
    */
   const stringData = Object.entries(data).reduce(
     (str, [key, val]) =>
+    //We call '\n' to add a new line inbetween appends for readability
       (str += `${key}: \n${val} \n \n`),"");
   return {
     text: stringData,
-    //optional html data
+    //optional html data (refer to the finished-files branch)
   };
 };
 
